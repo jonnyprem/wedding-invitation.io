@@ -1,0 +1,1359 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Allura&family=Montserrat:wght@300;400;500;600&family=Battambang:wght@400;700;900&family=Dangrek&family=Bokor&family=Moul&display=swap');
+
+/* Moulpali Font - Custom Khmer Font by Danh Hong */
+@font-face {
+  font-family: 'Moulpali';
+  src: url('https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/moulpali/Moulpali-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(71, 55, 50);
+  background-color: #f8f8f8;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Khmer Font Styling */
+*[lang="km"],
+*:lang(km),
+.khmer,
+.hero-line {
+  font-family: 'Moulpali', 'Moul', 'Battambang', cursive !important;
+}
+
+.script-text {
+  font-family: 'Allura', cursive;
+  font-weight: 400;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Hero Section */
+.hero {
+  padding: 5rem 1rem 3rem;
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.15em;
+  color: #473732;
+  font-weight: 400;
+}
+
+.hero-line {
+  display: block;
+  animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.hero-line:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.hero-line:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.hero-line:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.hero-line.light {
+  font-weight: 300;
+  letter-spacing: 0.2em;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+/* ==================== INVITATION CARD SECTION ==================== */
+.invitation-card {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+}
+
+.card {
+  background: linear-gradient(180deg, #e8e5e1 0%, #ebe8e4 50%, #e8e5e1 100%);
+  border-radius: 40px;
+  overflow: hidden;
+  position: relative;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Photo Sections - Each takes half */
+.photo-section {
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  min-height: 400px;
+}
+
+/* Fade from bottom for top photo */
+.photo-top::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, 
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.95) 15%,
+    rgba(255, 255, 255, 0.8) 30%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Fade from top for bottom photo */
+.photo-bottom::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.95) 15%,
+    rgba(255, 255, 255, 0.8) 30%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photo-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  filter: brightness(1.1) contrast(1.1) saturate(1.05);
+}
+
+/* Middle Content Section - Centered between photos */
+.card-middle-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 90%;
+  max-width: 400px;
+  background: linear-gradient(135deg, 
+    rgba(232, 229, 225, 0.98) 0%, 
+    rgba(235, 232, 228, 0.98) 100%
+  );
+  border-radius: 30px;
+  padding: 2rem 1.5rem;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 768px) {
+  .card-middle-content {
+    padding: 2.5rem 2rem;
+  }
+}
+
+/* Names Section - Middle Between Photos */
+.names-section-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: auto;
+  text-align: center;
+  padding: 1.5rem 3rem;
+}
+
+.names-section-middle .couple-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+.names-section-middle .bride-name,
+.names-section-middle .groom-name {
+  font-family: 'Moulpali', 'Battambang', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  display: inline;
+}
+
+.names-section-middle .and-text {
+  font-family: 'Allura', cursive;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  margin: 0;
+  display: inline;
+}
+
+@media (min-width: 768px) {
+  .names-section-middle {
+    padding: 1.75rem 3.5rem;
+  }
+  
+  .names-section-middle .bride-name,
+  .names-section-middle .groom-name {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+  }
+  
+  .names-section-middle .and-text {
+    font-size: 2.25rem;
+  }
+}
+
+/* Names Section Overlay */
+.names-section-overlay {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 90%;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.names-section-overlay .couple-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.names-section-overlay .bride-name,
+.names-section-overlay .groom-name {
+  font-family: 'Moulpali', 'Battambang', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  display: block;
+}
+
+.names-section-overlay .and-text {
+  font-family: 'Allura', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: normal;
+  margin: 0.25rem 0;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .names-section-overlay .bride-name,
+  .names-section-overlay .groom-name {
+    font-size: 3rem;
+    letter-spacing: 3px;
+  }
+  
+  .names-section-overlay .and-text {
+    font-size: 2.5rem;
+  }
+}
+
+/* Card Divider */
+.card-divider {
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #2c2c2c 50%, transparent 100%);
+  margin: 0 auto 1.5rem;
+  opacity: 0.3;
+}
+
+/* Date Section */
+.date-section {
+  padding: 0 0 1rem;
+  text-align: center;
+}
+
+.date-label {
+  font-family: 'Allura', cursive;
+  font-size: 1.75rem;
+  color: #2c2c2c;
+  margin: 0 0 0.25rem 0;
+  font-weight: 400;
+}
+
+.date-number {
+  font-family: 'Allura', cursive;
+  font-size: 5rem;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 0.9;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .date-label {
+    font-size: 2rem;
+  }
+  
+  .date-number {
+    font-size: 6rem;
+  }
+}
+
+/* Event Info */
+.event-info {
+  padding: 0;
+  text-align: center;
+}
+
+.event-info p {
+  margin: 0.35rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  color: #2c2c2c;
+  line-height: 1.5;
+}
+
+.event-time {
+  font-family: 'Battambang', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+.event-venue {
+  font-family: 'Battambang', serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.event-location {
+  font-size: 0.95rem;
+}
+
+.event-year {
+  font-family: 'Moulpali', 'Battambang', serif;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .event-info p {
+    font-size: 1.05rem;
+  }
+  
+  .event-venue {
+    font-size: 1.15rem;
+  }
+}
+
+/* ==================== COUNTDOWN SECTION ==================== */
+.countdown-section {
+  padding: 6rem 1rem;
+  background: linear-gradient(135deg, #fdfbf7 0%, #f8f8f8 50%, #fdfbf7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #90634e 50%, transparent 100%);
+}
+
+.countdown-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #90634e 50%, transparent 100%);
+}
+
+.countdown-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Countdown Header */
+.countdown-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.countdown-title {
+  font-family: 'Moulpali', 'Battambang', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #473732;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.countdown-subtitle {
+  font-family: 'Allura', cursive;
+  font-size: 1.75rem;
+  color: #90634e;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .countdown-title {
+    font-size: 2.5rem;
+  }
+  
+  .countdown-subtitle {
+    font-size: 2.25rem;
+  }
+}
+
+/* Countdown Grid */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+@media (min-width: 768px) {
+  .countdown-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1000px;
+    gap: 2.5rem;
+  }
+}
+
+/* Countdown Box */
+.countdown-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 0.6s ease-out backwards;
+}
+
+.countdown-box:nth-child(1) { animation-delay: 0.1s; }
+.countdown-box:nth-child(2) { animation-delay: 0.2s; }
+.countdown-box:nth-child(3) { animation-delay: 0.3s; }
+.countdown-box:nth-child(4) { animation-delay: 0.4s; }
+
+/* Countdown Circle */
+.countdown-circle {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.countdown-circle:hover {
+  transform: scale(1.08);
+}
+
+@media (min-width: 768px) {
+  .countdown-circle {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* SVG Ring */
+.countdown-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-background {
+  fill: none;
+  stroke: rgba(144, 99, 78, 0.1);
+  stroke-width: 8;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: url(#gradient);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 339.292;
+  stroke-dashoffset: 0;
+  animation: fillRing 2s ease-out forwards;
+}
+
+@keyframes fillRing {
+  from {
+    stroke-dashoffset: 339.292;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Countdown Content */
+.countdown-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background: white;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1),
+              0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 3px solid rgba(144, 99, 78, 0.1);
+  transition: all 0.3s ease;
+}
+
+.countdown-circle:hover .countdown-content {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15),
+              0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: rgba(144, 99, 78, 0.3);
+}
+
+@media (min-width: 768px) {
+  .countdown-content {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+.countdown-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #90634e, #d4a57a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .countdown-number {
+    font-size: 3rem;
+  }
+}
+
+.countdown-label {
+  font-family: 'Moulpali', 'Battambang', serif;
+  font-size: 0.75rem;
+  color: #473732;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 768px) {
+  .countdown-label {
+    font-size: 0.875rem;
+  }
+}
+
+/* Countdown Footer */
+.countdown-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  animation: fadeIn 1s ease-out 0.8s backwards;
+}
+
+.decorative-line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #90634e 50%, transparent 100%);
+}
+
+.countdown-message {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #90634e;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .decorative-line {
+    max-width: 200px;
+  }
+  
+  .countdown-message {
+    font-size: 1.1rem;
+  }
+}
+
+/* Add gradient definition for SVG */
+.countdown-section svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* Gallery Section */
+.gallery-section {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.gallery-item {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+.gallery-item:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Location Section */
+.location-section {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .location-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.venue-info {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .venue-info {
+    text-align: left;
+  }
+}
+
+.venue-name {
+  font-family: 'Allura', cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #473732;
+  margin-bottom: 1.5rem;
+}
+
+.venue-address {
+  margin-bottom: 2rem;
+}
+
+.venue-address p {
+  font-size: 1.125rem;
+  color: #473732;
+  margin-bottom: 0.75rem;
+}
+
+.venue-description {
+  margin-bottom: 2rem;
+}
+
+.venue-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: #473732;
+  margin-bottom: 1rem;
+}
+
+.venue-description p {
+  color: #473732;
+  line-height: 1.7;
+}
+
+.venue-extras {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.extra-item {
+  margin-bottom: 1rem;
+}
+
+.extra-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  color: #473732;
+  margin-bottom: 0.5rem;
+}
+
+.extra-text {
+  color: #473732;
+  font-size: 0.875rem;
+}
+
+.map-container {
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.map-iframe {
+  filter: grayscale(100%);
+}
+
+.directions-button-container {
+  text-align: center;
+}
+
+.directions-button {
+  display: inline-block;
+  background-color: #90634e;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.directions-button:hover {
+  background-color: #7d5643;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(144, 99, 78, 0.3);
+}
+
+/* Details Section */
+.details-section {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.detail-item {
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out backwards;
+}
+
+.detail-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.detail-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.detail-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #473732;
+  margin-bottom: 1.5rem;
+}
+
+.detail-divider {
+  width: 5rem;
+  height: 1px;
+  background-color: #90634e;
+  margin: 0 auto 1.5rem;
+}
+
+.detail-text {
+  color: #473732;
+  line-height: 1.7;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .detail-text {
+    font-size: 1.125rem;
+  }
+}
+
+.website-info {
+  text-align: center;
+  color: #473732;
+}
+
+.website-info p {
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .website-info p {
+    font-size: 1.125rem;
+  }
+}
+
+.website-url {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .website-url {
+    font-size: 1.5rem;
+  }
+}
+
+/* RSVP Section */
+.rsvp-section {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 5rem 1rem;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.rsvp-content {
+  margin-bottom: 2rem;
+  animation: scaleIn 1s ease-out 0.3s backwards;
+}
+
+.rsvp-title {
+  font-family: 'Allura', cursive;
+  font-size: 3.75rem;
+  font-weight: 400;
+  color: #473732;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .rsvp-title {
+    font-size: 4.5rem;
+  }
+}
+
+.rsvp-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: #473732;
+}
+
+@media (min-width: 768px) {
+  .rsvp-date {
+    font-size: 1.5rem;
+  }
+}
+
+.rsvp-text {
+  color: #473732;
+  line-height: 1.7;
+  max-width: 42rem;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .rsvp-text {
+    font-size: 1.125rem;
+  }
+}
+
+/* ==================== CEREMONY TIMELINE SECTION ==================== */
+.ceremony-timeline-section {
+  padding: 5rem 1rem;
+  background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.ceremony-timeline-section .section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #473732;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-subtitle {
+  font-family: 'Allura', cursive;
+  font-size: 2rem;
+  color: #90634e;
+  text-align: center;
+  margin-bottom: 4rem;
+  font-weight: 400;
+}
+
+/* Timeline Wrapper */
+.timeline-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Curved Timeline SVG */
+.timeline-curve {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.curve-line {
+  stroke-dasharray: 10 5;
+  animation: dashAnimation 30s linear infinite;
+}
+
+@keyframes dashAnimation {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Timeline Container */
+.timeline-container {
+  position: relative;
+  z-index: 1;
+  padding: 0 1rem;
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: flex-start;
+  opacity: 0;
+  animation: fadeInTimeline 0.8s ease-out forwards;
+}
+
+@keyframes fadeInTimeline {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for each item */
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+.timeline-item:nth-child(7) { animation-delay: 0.7s; }
+
+/* Alternate sides */
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Timeline Dot */
+.timeline-dot {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #90634e, #d4a57a);
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(144, 99, 78, 0.2),
+              0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  z-index: 2;
+  animation: pulse 2s ease-in-out infinite;
+  margin: 0 2rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 4px rgba(144, 99, 78, 0.2),
+                0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(144, 99, 78, 0.1),
+                0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* Timeline Card */
+.timeline-card {
+  flex: 1;
+  max-width: 450px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(144, 99, 78, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(144, 99, 78, 0.3);
+}
+
+/* Card arrow pointing to dot */
+.timeline-item:nth-child(odd) .timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  right: 100%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+  border-color: transparent #ffffff transparent transparent;
+  filter: drop-shadow(-2px 0 4px rgba(0, 0, 0, 0.05));
+}
+
+.timeline-item:nth-child(even) .timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 12px;
+  border-color: transparent transparent transparent #ffffff;
+  filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.05));
+}
+
+/* Timeline Time Badge */
+.timeline-time {
+  margin-bottom: 1rem;
+}
+
+.time-badge {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: linear-gradient(135deg, #90634e, #d4a57a);
+  color: #ffffff;
+  border-radius: 50px;
+  font-family: 'Moulpali', 'Battambang', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(144, 99, 78, 0.3);
+}
+
+/* Ceremony Content */
+.ceremony-content {
+  border-top: 2px solid rgba(144, 99, 78, 0.1);
+  padding-top: 1.25rem;
+}
+
+.ceremony-title-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #473732;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.ceremony-title-km {
+  font-family: 'Moulpali', 'Battambang', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #90634e;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.ceremony-description {
+  font-family: 'Battambang', 'Moul', serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .ceremony-timeline-section .section-title {
+    font-size: 2rem;
+  }
+
+  .timeline-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-curve {
+    display: none;
+  }
+
+  .timeline-item {
+    flex-direction: column !important;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  .timeline-dot {
+    margin: 0 0 1.5rem 0;
+  }
+
+  .timeline-card {
+    max-width: 100%;
+  }
+
+  .timeline-card::before {
+    display: none;
+  }
+
+  .ceremony-title-en {
+    font-size: 1.25rem;
+  }
+
+  .ceremony-title-km {
+    font-size: 1.1rem;
+  }
+
+  .ceremony-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .timeline-dot {
+    margin: 0 1.5rem;
+  }
+
+  .timeline-card {
+    max-width: 350px;
+    padding: 1.5rem;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .timeline-wrapper {
+    max-width: 1200px;
+  }
+
+  .timeline-card {
+    max-width: 500px;
+    padding: 2.5rem;
+  }
+
+  .ceremony-title-en {
+    font-size: 1.75rem;
+  }
+
+  .ceremony-title-km {
+    font-size: 1.4rem;
+  }
+}
+
+/* Footer */
+.footer {
+  padding: 3rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
