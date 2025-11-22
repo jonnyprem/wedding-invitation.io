@@ -24,46 +24,102 @@
       <div class="sparkle sparkle-6">✦</div>
     </div>
     <div class="hero-content">
-      <div class="hero-ornament hero-ornament-top">
-        <svg viewBox="0 0 100 20" class="ornament-svg">
-          <path d="M 10,10 Q 30,0 50,10 T 90,10" stroke="currentColor" fill="none" stroke-width="1"/>
-        </svg>
-      </div>
       <h1 class="hero-title">
         <span class="hero-line hero-line-1">ជូនចំពោះភ្ញៀវ</span>
         <span class="hero-line hero-line-2 light">កិត្តិយស ជាទីគោរព</span>
       </h1>
-      <div class="hero-ornament hero-ornament-bottom">
-        <svg viewBox="0 0 100 20" class="ornament-svg">
-          <path d="M 10,10 Q 30,20 50,10 T 90,10" stroke="currentColor" fill="none" stroke-width="1"/>
-        </svg>
-      </div>
     </div>
   </section>
 
-  <!-- ==================== MAIN INVITATION CARD ==================== -->
+  <!-- ==================== MAIN INVITATION  ==================== -->
   <section class="invitation-card">
-    <div class="card">
-      
-      <!-- First Photo Section - Top Half -->
-      <div class="photo-section photo-top">
-        <img src="public/images/couples.jpg" alt="Wedding couple" class="couple-photo">
+    <div class="invitation-content">
+      <!-- Main Heading -->
+      <div class="invitation-heading">
+        <h1 class="invitation-title-main">ពិធីមង្គលការរបស់យើង</h1>
+        <p class="invitation-title-sub">We're Getting Married</p>
       </div>
 
-      <!-- Names Section - In the Middle (Single Line) -->
-      <div class="names-section-middle">
-        <h2 class="couple-names">
-          <span class="bride-name">លាភហេង</span>
-          <span class="and-text">និង</span>
-          <span class="groom-name">ស្រីពេជ្រ</span>
-        </h2>
+      <!-- Bride & Groom Names -->
+      <div class="couple-section">
+        <div class="couple-name-block">
+          <h3 class="name-primary">ព្រេម</h3>
+          <h3 class="name-primary">លាភហេង</h3>
+          <p class="name-secondary">PREM Leap Heng</p>
+          <span class="name-role">Bride</span>
+        </div>
+
+        <div class="couple-divider">
+          <svg class="divider-heart-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="heartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#d4a57a;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#90634e;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <!-- Heart Shape -->
+            <path d="M50,85 C50,85 20,60 20,40 C20,30 25,20 35,20 C42,20 47,25 50,30 C53,25 58,20 65,20 C75,20 80,30 80,40 C80,60 50,85 50,85 Z" 
+                  fill="url(#heartGradient)" 
+                  stroke="#90634e" 
+                  stroke-width="1.5"/>
+            <!-- Decorative Lines -->
+            <line x1="10" y1="50" x2="35" y2="50" stroke="#d4a57a" stroke-width="1.5" opacity="0.6"/>
+            <line x1="65" y1="50" x2="90" y2="50" stroke="#d4a57a" stroke-width="1.5" opacity="0.6"/>
+            <!-- Small Hearts -->
+            <path d="M15,45 C15,45 10,40 10,37 C10,35 11,33 13,33 C14.5,33 15.5,34 16,35 C16.5,34 17.5,33 19,33 C21,33 22,35 22,37 C22,40 15,45 15,45 Z" 
+                  fill="#d4a57a" opacity="0.7"/>
+            <path d="M85,45 C85,45 80,40 80,37 C80,35 81,33 83,33 C84.5,33 85.5,34 86,35 C86.5,34 87.5,33 89,33 C91,33 92,35 92,37 C92,40 85,45 85,45 Z" 
+                  fill="#d4a57a" opacity="0.7"/>
+          </svg>
+        </div>
+
+        <div class="couple-name-block">
+          <h3 class="name-primary">អុំ</h3>
+          <h3 class="name-primary">ស្រីពេជ្រ</h3>
+          <p class="name-secondary">OUM Srey Pic</p>
+          <span class="name-role">Groom</span>
+        </div>
       </div>
 
-      <!-- Second Photo Section - Bottom Half -->
-      <div class="photo-section photo-bottom">
-        <img src="public/images/gallery1.jpg" alt="Wedding couple" class="couple-photo">
+      <!-- Featured Photo -->
+      <div class="featured-image">
+        <div class="image-frame">
+          <!-- Decorative Corner Flourishes -->
+          <svg class="corner-flourish top-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 L0,40 Q0,20 20,20 L40,20 Q20,20 20,0 Z" fill="#d4a57a" opacity="0.8"/>
+            <circle cx="15" cy="15" r="3" fill="#90634e"/>
+            <path d="M5,5 Q15,5 15,15" stroke="#90634e" stroke-width="1" fill="none"/>
+          </svg>
+          
+          <svg class="corner-flourish top-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,0 L100,40 Q100,20 80,20 L60,20 Q80,20 80,0 Z" fill="#d4a57a" opacity="0.8"/>
+            <circle cx="85" cy="15" r="3" fill="#90634e"/>
+            <path d="M95,5 Q85,5 85,15" stroke="#90634e" stroke-width="1" fill="none"/>
+          </svg>
+          
+          <svg class="corner-flourish bottom-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,100 L0,60 Q0,80 20,80 L40,80 Q20,80 20,100 Z" fill="#d4a57a" opacity="0.8"/>
+            <circle cx="15" cy="85" r="3" fill="#90634e"/>
+            <path d="M5,95 Q15,95 15,85" stroke="#90634e" stroke-width="1" fill="none"/>
+          </svg>
+          
+          <svg class="corner-flourish bottom-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100,100 L100,60 Q100,80 80,80 L60,80 Q80,80 80,100 Z" fill="#d4a57a" opacity="0.8"/>
+            <circle cx="85" cy="85" r="3" fill="#90634e"/>
+            <path d="M95,95 Q85,95 85,85" stroke="#90634e" stroke-width="1" fill="none"/>
+          </svg>
+
+          <img src="public/images/couples.jpg" alt="Leap Heng & Srey Pic" class="couple-image">
+          <div class="image-overlay"></div>
+        </div>
       </div>
-      
+      <!-- Closing Quote -->
+      <div class="closing-quote">
+        <div class="quote-divider"></div>
+        <p class="quote-main">"Two souls, one heart"</p>
+        <p class="quote-khmer">ព្រលឹងពីរ ដួងចិត្តមួយ</p>
+        <div class="quote-divider"></div>
+      </div>
     </div>
   </section>
 
@@ -342,16 +398,16 @@
           </iframe>
         </div>
       </div>
+    </div>
 
-      <!-- Directions Button -->
-      <div class="directions-button-container">
-        <a href="https://maps.app.goo.gl/5T1tWD5zx8hgsTec7"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="directions-button">
-          ទទួលបានទិសដៅ
-        </a>
-      </div>
+    <!-- Directions Button -->
+    <div class="directions-button-container">
+      <a href="https://maps.app.goo.gl/5T1tWD5zx8hgsTec7"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="directions-button">
+        ទទួលបានទិសដៅ
+      </a>
     </div>
   </section>
 
