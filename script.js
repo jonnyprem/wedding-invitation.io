@@ -32,6 +32,82 @@ updateCountdown();
 // Update countdown every second
 setInterval(updateCountdown, 1000);
 
+// ==================== LIGHTBOX GALLERY ====================
+const galleryImages = [
+  'public/images/gallery1.jpg',
+  'public/images/gallery2.jpg',
+  'public/images/gallery3.jpg',
+  'public/images/gallery4.jpg',
+  'public/images/gallery5.jpg',
+  'public/images/gallery6.jpg'
+];
+
+let currentImageIndex = 0;
+
+function openLightbox(index) {
+  currentImageIndex = index;
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const counter = document.getElementById('lightbox-counter');
+  
+  lightboxImg.src = galleryImages[currentImageIndex];
+  counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+  lightbox.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  lightbox.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+function changeImage(direction) {
+  currentImageIndex += direction;
+  
+  if (currentImageIndex >= galleryImages.length) {
+    currentImageIndex = 0;
+  } else if (currentImageIndex < 0) {
+    currentImageIndex = galleryImages.length - 1;
+  }
+  
+  const lightboxImg = document.getElementById('lightbox-img');
+  const counter = document.getElementById('lightbox-counter');
+  
+  lightboxImg.style.animation = 'none';
+  setTimeout(() => {
+    lightboxImg.src = galleryImages[currentImageIndex];
+    lightboxImg.style.animation = 'zoomIn 0.4s ease-out';
+    counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+  }, 50);
+}
+
+// Close lightbox on Escape key
+document.addEventListener('keydown', (e) => {
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox && lightbox.style.display === 'block') {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      changeImage(-1);
+    } else if (e.key === 'ArrowRight') {
+      changeImage(1);
+    }
+  }
+});
+
+// Close lightbox when clicking outside the image
+document.addEventListener('DOMContentLoaded', () => {
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
+});
+
 // ==================== SCROLL ANIMATIONS ====================
 // Intersection Observer for scroll animations
 const observerOptions = {

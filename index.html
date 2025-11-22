@@ -84,33 +84,10 @@
       <!-- Featured Photo -->
       <div class="featured-image">
         <div class="image-frame">
-          <!-- Decorative Corner Flourishes -->
-          <svg class="corner-flourish top-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 L0,40 Q0,20 20,20 L40,20 Q20,20 20,0 Z" fill="#d4a57a" opacity="0.8"/>
-            <circle cx="15" cy="15" r="3" fill="#90634e"/>
-            <path d="M5,5 Q15,5 15,15" stroke="#90634e" stroke-width="1" fill="none"/>
-          </svg>
-          
-          <svg class="corner-flourish top-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100,0 L100,40 Q100,20 80,20 L60,20 Q80,20 80,0 Z" fill="#d4a57a" opacity="0.8"/>
-            <circle cx="85" cy="15" r="3" fill="#90634e"/>
-            <path d="M95,5 Q85,5 85,15" stroke="#90634e" stroke-width="1" fill="none"/>
-          </svg>
-          
-          <svg class="corner-flourish bottom-left" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,100 L0,60 Q0,80 20,80 L40,80 Q20,80 20,100 Z" fill="#d4a57a" opacity="0.8"/>
-            <circle cx="15" cy="85" r="3" fill="#90634e"/>
-            <path d="M5,95 Q15,95 15,85" stroke="#90634e" stroke-width="1" fill="none"/>
-          </svg>
-          
-          <svg class="corner-flourish bottom-right" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100,100 L100,60 Q100,80 80,80 L60,80 Q80,80 80,100 Z" fill="#d4a57a" opacity="0.8"/>
-            <circle cx="85" cy="85" r="3" fill="#90634e"/>
-            <path d="M95,95 Q85,95 85,85" stroke="#90634e" stroke-width="1" fill="none"/>
-          </svg>
-
+          <div class="frame-border-outer"></div>
+          <div class="frame-border-inner"></div>
           <img src="public/images/couples.jpg" alt="Leap Heng & Srey Pic" class="couple-image">
-          <div class="image-overlay"></div>
+          <div class="image-shine"></div>
         </div>
       </div>
       <!-- Closing Quote -->
@@ -197,7 +174,7 @@
       
       <div class="countdown-footer">
         <div class="decorative-line"></div>
-        <p class="countdown-message">💕 Join us in celebrating our love story 💕</p>
+        <p class="countdown-message">ថ្ងៃអាទិត្យ ទី15 ខែកុម្ភៈ ឆ្នាំ២០២៦ </p>
         <div class="decorative-line"></div>
       </div>
     </div>
@@ -331,26 +308,39 @@
     <h3 class="section-title">រឿងរ៉ាវរបស់យើង</h3>
 
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox(0)">
         <img src="public/images/gallery1.jpg" alt="Wedding photo 1">
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox(1)">
         <img src="public/images/gallery2.jpg" alt="Wedding photo 2">
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox(2)">
         <img src="public/images/gallery3.jpg" alt="Wedding photo 3">
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox(3)">
         <img src="public/images/gallery4.jpg" alt="Wedding photo 4">
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox(4)">
         <img src="public/images/gallery5.jpg" alt="Wedding photo 5">
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox(5)">
         <img src="public/images/gallery6.jpg" alt="Wedding photo 6">
       </div>
     </div>
   </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-content">
+      <button class="lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+      <img id="lightbox-img" src="" alt="Gallery image">
+      <button class="lightbox-next" onclick="changeImage(1)">&#10095;</button>
+    </div>
+    <div class="lightbox-counter">
+      <span id="lightbox-counter"></span>
+    </div>
+  </div>
 
   <!-- ==================== LOCATION SECTION ==================== -->
   <section class="location-section">
